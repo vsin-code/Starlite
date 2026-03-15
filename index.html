@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starlite - Redefining The Future of Electrical and Power Solutions</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --dark: #1a1a1a;
+      --gray: #32373c;
+      --light-gray: #f5f5f5;
+      --mid-gray: #6b7280;
+      --accent: #1e3a5f;
+      --accent-light: #2563a8;
+      --gold: #d4a017;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 44px;
+      object-fit: contain;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: color 0.2s;
+      text-transform: uppercase;
+    }
+
+    nav a:hover { color: var(--accent-light); }
+
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown > a::after {
+      content: " ▾";
+      font-size: 10px;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 6px;
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      z-index: 100;
+      padding: 6px 0;
+    }
+
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 16px;
+      font-size: 12px;
+      border-radius: 0;
+      color: var(--dark);
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--light-gray);
+      color: var(--accent-light);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .lang-toggle a {
+      text-decoration: none;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .lang-toggle img {
+      width: 20px;
+      height: 14px;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    .lang-separator { color: var(--mid-gray); }
+
+    /* ─── HERO ─── */
+    .hero {
+      margin-top: 72px;
+      position: relative;
+      height: calc(100vh - 72px);
+      min-height: 600px;
+      overflow: hidden;
+      background: #0d1b2e;
+    }
+
+    .hero-slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .hero-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,20,50,0.75) 0%, rgba(10,20,50,0.3) 100%);
+    }
+
+    .hero-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 80px;
+      max-width: 780px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-content p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--white);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 36px;
+      border-radius: 9999px;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-light);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .hero-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .hero-dot.active { background: var(--white); }
+
+    .hero-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: white;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .hero-arrow:hover { background: rgba(255,255,255,0.3); }
+    .hero-arrow.prev { left: 24px; }
+    .hero-arrow.next { right: 24px; }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 100px 80px; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+
+    .section-text {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--mid-gray);
+      max-width: 600px;
+    }
+
+    /* ─── INNOVATE ─── */
+    .innovate {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .innovate-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+
+    .innovate-img-main {
+      grid-column: 1 / -1;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 280px;
+    }
+
+    .innovate-img-main img,
+    .innovate-img-sub img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .innovate-img-sub {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 200px;
+    }
+
+    .innovate-img-main:hover img,
+    .innovate-img-sub:hover img { transform: scale(1.04); }
+
+    .innovate-content { padding: 20px 0; }
+
+    .innovate-features {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .innovate-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .innovate-feature-icon {
+      width: 44px; height: 44px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .innovate-feature-icon svg {
+      width: 22px; height: 22px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .innovate-feature-text h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--dark);
+    }
+
+    .innovate-feature-text p {
+      font-size: 14px;
+      color: var(--mid-gray);
+      line-height: 1.6;
+    }
+
+    /* ─── EXCELLENCE ─── */
+    .excellence {
+      background: var(--accent);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .excellence::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .excellence::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .excellence-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .excellence .section-label { color: rgba(255,255,255,0.6); }
+    .excellence .section-title { color: var(--white); }
+    .excellence .section-text { color: rgba(255,255,255,0.75); }
+
+    .excellence-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.05em;
+    }
+
+    .excellence-image {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 480px;
+    }
+
+    .excellence-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ─── QUALITY ─── */
+    .quality { background: var(--light-gray); }
+
+    .quality-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    .quality-header .section-text { margin: 0 auto; }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    .product-card-img {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .product-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .product-card:hover .product-card-img img { transform: scale(1.06); }
+
+    .product-card-body {
+      padding: 20px 16px;
+    }
+
+    .product-card-body h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.4;
+    }
+
+    .product-card-arrow {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-light);
+      letter-spacing: 0.04em;
+    }
+
+    .product-card-arrow svg {
+      width: 14px; height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ─── PARTNER ─── */
+    .partner {
+      background: var(--dark);
+      text-align: center;
+      padding: 100px 80px;
+    }
+
+    .partner .section-label { color: rgba(255,255,255,0.5); }
+
+    .partner .section-title {
+      color: var(--white);
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+
+    .partner .section-text {
+      color: rgba(255,255,255,0.65);
+      margin: 0 auto 40px;
+      max-width: 520px;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid var(--white);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 36px;
+      border-radius: 9999px;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0d1b2e;
+      color: rgba(255,255,255,0.75);
+      padding: 80px 80px 40px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand .footer-logo {
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .footer-brand .footer-logo img {
+      height: 40px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 24px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .footer-contact-icon {
+      width: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      opacity: 0.7;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+
+    .footer-social a:hover { background: rgba(255,255,255,0.2); }
+
+    .footer-social svg {
+      width: 16px; height: 16px;
+      fill: rgba(255,255,255,0.75);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover { color: var(--white); }
+
+    /* ─── MOBILE NAV TOGGLE ─── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 900px) {
+      section { padding: 70px 40px; }
+      footer { padding: 60px 40px 32px; }
+
+      .innovate,
+      .excellence-inner { grid-template-columns: 1fr; gap: 40px; }
+
+      .innovate-images { grid-template-columns: 1fr 1fr; }
+
+      header { padding: 0 24px; }
+
+      nav, .lang-toggle { display: none; }
+      nav.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: white; padding: 20px 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); z-index: 999; }
+
+      .hamburger { display: flex; }
+
+      .hero-content { padding: 40px 32px; }
+
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .excellence-image { height: 300px; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 60px 24px; }
+      .hero-content { padding: 32px 24px; }
+      .product-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .partner { padding: 60px 24px; }
+      footer { padding: 60px 24px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <a href="#" class="logo">
+    <img src="https://www.starlite.id/wp-content/uploads/2025/04/logo.svg"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
+         alt="Starlite" />
+    <span style="display:none; font-size:22px; font-weight:800; color:#1e3a5f; letter-spacing:-0.02em;">STARLITE</span>
+  </a>
+
+  <nav id="mainNav">
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <div class="nav-dropdown">
+      <a href="#">Products</a>
+      <div class="dropdown-menu">
+        <a href="#">Transformer</a>
+        <a href="#">EV Charger</a>
+      </div>
+    </div>
+    <a href="#">Experiences</a>
+    <a href="#">News</a>
+    <a href="#">Career</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="header-right">
+    <div class="lang-toggle">
+      <a href="#">
+        <img src="https://www.starlite.id/wp-content/uploads/2025/03/image-3-1.png" alt="EN"
+             onerror="this.style.display='none'" />
+        English
+      </a>
+      <span class="lang-separator">|</span>
+      <a href="#">
+        <img src="https://www.starlite.id/wp-content/uploads/2025/03/image-8-2.png" alt="ID"
+             onerror="this.style.display='none'" />
+        Bahasa
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="hero" style="padding:0;">
+  <div class="hero-slides" id="heroSlides">
+    <!-- Slide 1 -->
+    <div class="hero-slide">
+      <img src="https://www.starlite.id/wp-content/uploads/2025/05/hero-1-scaled.jpg"
+           onerror="this.style.background='#1a2a4a'; this.style.height='100%'; this.removeAttribute('src')"
+           alt="Electrical Solutions" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Redefining The Future of Electrical and Power Solutions</h1>
+        <p>Cutting-edge engineering meets unwavering reliability — delivering efficient, sustainable electrical systems for a brighter tomorrow.</p>
+        <a href="#" class="btn-primary">Learn More</a>
+      </div>
+    </div>
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+      <img src="https://www.starlite.id/wp-content/uploads/2025/05/hero-2-scaled.jpg"
+           onerror="this.style.background='#0f1e35'; this.style.height='100%'; this.removeAttribute('src')"
+           alt="Transformer Manufacturing" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Leading The Future of Electrical Solutions</h1>
+        <p>With 50+ years of expertise, Starlite engineers reliable transformers and power systems trusted across Indonesia and beyond.</p>
+        <a href="#" class="btn-primary">Explore Products</a>
+      </div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+      <img src="https://www.starlite.id/wp-content/uploads/2025/05/hero-3-scaled.jpg"
+           onerror="this.style.background='#122030'; this.style.height='100%'; this.removeAttribute('src')"
+           alt="Power Infrastructure" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Precision-Engineered for Performance and Longevity</h1>
+        <p>Every transformer we build is a testament to quality craftsmanship and advanced engineering standards.</p>
+        <a href="#" class="btn-primary">Get In Touch</a>
+      </div>
+    </div>
+    <!-- Slide 4 -->
+    <div class="hero-slide">
+      <img src="https://www.starlite.id/wp-content/uploads/2025/05/hero-4-scaled.jpg"
+           onerror="this.style.background='#0d1826'; this.style.height='100%'; this.removeAttribute('src')"
+           alt="EV Charging Solutions" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Powering the EV Revolution with Smart Charging</h1>
+        <p>Our next-generation EV chargers are designed to meet the demands of a rapidly evolving electric mobility landscape.</p>
+        <a href="#" class="btn-primary">Discover More</a>
+      </div>
+    </div>
+  </div>
+
+  <button class="hero-arrow prev" id="heroPrev">&#8592;</button>
+  <button class="hero-arrow next" id="heroNext">&#8594;</button>
+
+  <div class="hero-dots" id="heroDots">
+    <div class="hero-dot active" data-index="0"></div>
+    <div class="hero-dot" data-index="1"></div>
+    <div class="hero-dot" data-index="2"></div>
+    <div class="hero-dot" data-index="3"></div>
+  </div>
+</section>
+
+<!-- ─── INNOVATE ─── -->
+<section class="innovate">
+  <div class="innovate-images">
+    <div class="innovate-img-main">
+      <img src="https://www.starlite.id/wp-content/uploads/2025/03/innovate-main.jpg"
+           onerror="this.src='https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=80'"
+           alt="Electrical Innovation" />
+    </div>
+    <div class="innovate-img-sub">
+      <img src="https://www.starlite.id/wp-content/uploads/2025/03/innovate-sub1.jpg"
+           onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80'"
+           alt="Engineering" />
+    </div>
+    <div class="innovate-img-sub">
+      <img src="https://www.starlite.id/wp-content/uploads/2025/03/innovate-sub2.jpg"
+           onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&q=80'"
+           alt="Sustainability" />
+    </div>
+  </div>
+
+  <div class="innovate-content">
+    <div class="section-label">Innovate</div>
+    <h2 class="section-title">Leading The Future of Electrical Solutions</h2>
+    <p class="section-text">We are committed to sustainability and energy efficiency, delivering innovative electrical solutions that empower industries and communities across the region.</p>
+
+    <div class="innovate-features">
+      <div class="innovate-feature">
+        <div class="innovate-feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="innovate-feature-text">
+          <h4>Energy Efficiency</h4>
+          <p>Advanced designs that minimize energy losses and maximize performance for sustainable operations.</p>
+        </div>
+      </div>
+      <div class="innovate-feature">
+        <div class="innovate-feature-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="innovate-feature-text">
+          <h4>Reliable Systems</h4>
+          <p>Built to perform consistently under demanding conditions, ensuring uninterrupted power supply.</p>
+        </div>
+      </div>
+      <div class="innovate-feature">
+        <div class="innovate-feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="innovate-feature-text">
+          <h4>Certified Quality</h4>
+          <p>All products meet international standards and undergo rigorous quality assurance testing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EXCELLENCE ─── -->
+<section class="excellence" style="padding:100px 80px;">
+  <div class="excellence-inner">
+    <div>
+      <div class="section-label">Excellence</div>
+      <h2 class="section-title">Powering The Future Through Innovation and Engineering Mastery</h2>
+      <p class="section-text">For over five decades, Starlite has been at the forefront of transformer manufacturing and electrical engineering in Indonesia, serving industries, utilities, and infrastructure projects nationwide.</p>
+
+      <div class="excellence-stats">
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Professionals</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1000+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">99%</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="excellence-image">
+      <img src="https://www.starlite.id/wp-content/uploads/2025/03/excellence.jpg"
+           onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80'"
+           alt="Engineering Excellence" />
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUALITY ─── -->
+<section class="quality">
+  <div class="quality-header">
+    <div class="section-label">Quality</div>
+    <h2 class="section-title">Precision-Engineered Electrical Solutions, Built to Perform</h2>
+    <p class="section-text">Explore our comprehensive range of transformer and power solutions, each designed and manufactured to the highest international standards.</p>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-card-img">
+        <img src="https://www.starlite.id/wp-content/uploads/2025/04/medium-power-transformer.jpg"
+             onerror="this.src='https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&q=80'"
+             alt="Medium Power Transformer" />
+      </div>
+      <div class="product-card-body">
+        <h3>Medium Power Transformer</h3>
+        <div class="product-card-arrow">
+          View Details
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card-img">
+        <img src="https://www.starlite.id/wp-content/uploads/2025/04/distribution-transformer.jpg"
+             onerror="this.src='https://images.unsplash.com/photo-1513828583688-c52646db42da?w=400&q=80'"
+             alt="Distribution Transformer" />
+      </div>
+      <div class="product-card-body">
+        <h3>Distribution Transformer</h3>
+        <div class="product-card-arrow">
+          View Details
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card-img">
+        <img src="https://www.starlite.id/wp-content/uploads/2025/04/special-transformer.jpg"
+             onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&q=80'"
+             alt="Special Transformer" />
+      </div>
+      <div class="product-card-body">
+        <h3>Special Transformer</h3>
+        <div class="product-card-arrow">
+          View Details
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card-img">
+        <img src="https://www.starlite.id/wp-content/uploads/2025/04/mobile-substation.jpg"
+             onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80'"
+             alt="Mobile Substation" />
+      </div>
+      <div class="product-card-body">
+        <h3>Mobile Substation</h3>
+        <div class="product-card-arrow">
+          View Details
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card-img">
+        <img src="https://www.starlite.id/wp-content/uploads/2025/04/compact-substation.jpg"
+             onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&q=80'"
+             alt="Compact Substation" />
+      </div>
+      <div class="product-card-body">
+        <h3>Compact Substation</h3>
+        <div class="product-card-arrow">
+          View Details
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PARTNER ─── -->
+<section class="partner">
+  <div class="section-label">Partnership</div>
+  <h2 class="section-title">Partner with Us</h2>
+  <p class="section-text">Join a growing network of clients and partners who trust Starlite for reliable, high-performance electrical and power solutions across Indonesia and the region.</p>
+  <a href="#" class="btn-outline">Contact Us Today</a>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">
+        <img src="https://www.starlite.id/wp-content/uploads/2025/04/logo.svg"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
+             alt="Starlite" />
+        <span style="display:none; font-size:20px; font-weight:800; color:white; letter-spacing:-0.02em;">STARLITE</span>
+      </a>
+      <p>Delivering precision-engineered electrical solutions and transformers for industries, utilities, and infrastructure across Indonesia for over 50 years.</p>
+
+      <div class="footer-contact-item">
+        <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <span>Jl. Alaydrus No. 20, Jakarta 10130, Indonesia</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        <span>(62-21) 633-3666</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+        </svg>
+        <span>WA: (62) 811-1921-8001</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        <span>sales@asata.com</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Experiences</a>
+      <a href="#">News</a>
+      <a href="#">Career</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Transformer</a>
+      <a href="#">EV Charger</a>
+      <a href="#">Medium Power Transformer</a>
+      <a href="#">Distribution Transformer</a>
+      <a href="#">Special Transformer</a>
+      <a href="#">Mobile Substation</a>
+      <a href="#">Compact Substation</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms and Conditions</a>
+      <a href="#">Refund Policy</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2025 Starlite. All rights reserved.</p>
+
+    <div class="footer-social">
+      <!-- Facebook -->
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <!-- Instagram -->
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <!-- X (Twitter) -->
+      <a href="#" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <!-- LinkedIn -->
+      <a href="#" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <!-- YouTube -->
+      <a href="#" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0d1b2e"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms &amp; Conditions</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── SCRIPTS ─── -->
+<script>
+  // Hero slider
+  const slides = document.getElementById('heroSlides');
+  const dots = document.querySelectorAll('.hero-dot');
+  let current = 0;
+  let autoplay;
+
+  function goTo(n) {
+    current = (n + 4) % 4;
+    slides.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  document.getElementById('heroPrev').onclick = () => { goTo(current - 1); resetAutoplay(); };
+  document.getElementById('heroNext').onclick = () => { goTo(current + 1); resetAutoplay(); };
+  dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.index); resetAutoplay(); }));
+
+  function resetAutoplay() {
+    clearInterval(autoplay);
+    autoplay = setInterval(() => goTo(current + 1), 5000);
+  }
+  autoplay = setInterval(() => goTo(current + 1), 5000);
+
+  // Mobile nav
+  document.getElementById('hamburger').addEventListener('click', function() {
+    const nav = document.getElementById('mainNav');
+    nav.classList.toggle('open');
+  });
+
+  // Scroll-reveal (simple fade-in)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.product-card, .stat-card, .innovate-feature').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
